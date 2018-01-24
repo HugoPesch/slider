@@ -7,11 +7,11 @@ require "slider/version"
 Gem::Specification.new do |s|
   s.name        = "slider"
   s.version     = Slider::VERSION
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Slider."
-  s.description = "TODO: Description of Slider."
+  s.authors     = ["HugoPesch, SamSyl"]
+  s.email       = ["contact@stock2com.com"]
+  s.homepage    = "http://stock2com.com"
+  s.summary     = "Slider Engine."
+  s.description = "Engine for sliders."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
