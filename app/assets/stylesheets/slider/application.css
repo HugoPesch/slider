@@ -47,7 +47,7 @@
   }
 }
 
-#carroussel{
+#carrousel{
   border: solid 5px #e7dbc5;
   width: 722px;
   height: 274px;
@@ -83,11 +83,13 @@
 .navigation span{
   background: white;
   color: black;
+  opacity: 0.7;
   padding: 2px 4px;
   cursor: pointer;
 }
 
-.navigation span:hover{
+.navigation span:hover,.navigation span.active{
   color: white;
   background: black;
+  opacity: 0.5;
 }
