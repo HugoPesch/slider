@@ -18,7 +18,7 @@
    -webkit-text-size-adjust: 100%;
    -ms-text-size-adjust: 100%
  }
- 
+
  body {
    margin: 0
  }
@@ -45,4 +45,49 @@
   .container {
     width: 1170px
   }
+}
+
+#carroussel{
+  border: solid 5px #e7dbc5;
+  width: 722px;
+  height: 274px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slide{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 712px;
+  height: 264px;
+}
+.title{
+  position: absolute;
+  padding-left: 12px;
+  width: 712px;
+  line-height: 34px;
+  height: 34px;
+  bottom:0;
+  left:0;
+  background-color: white;
+  opacity: 0.6;
+}
+
+.navigation{
+  position: absolute;
+  bottom: 38px;
+  right: 5px;
+}
+
+.navigation span{
+  background: white;
+  color: black;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.navigation span:hover{
+  color: white;
+  background: black;
 }
