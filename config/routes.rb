@@ -1,5 +1,5 @@
 Slider::Engine.routes.draw do
-  
-  root "pages#index"
+
+  root "pages#create_sliders"
 
 end
