@@ -5,7 +5,13 @@ module Slider
     end
 
     def new
-      @slider = Slider.new
+      @slider = Slider::Carrousel.new
+    end
+
+    def create
+    end
+
+    def import_image
     end
 
   end

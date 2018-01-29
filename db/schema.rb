@@ -13,30 +13,30 @@
 
 ActiveRecord::Schema.define(version: 20180129101547) do
 
-  create_table "slider_carrousels", force: :cascade do |t|
+  create_table "images", force: :cascade do |t|
+    t.text     "url",              limit: 65535
+    t.integer  "images_slider_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["images_slider_id"], name: "index_images_on_images_slider_id", using: :btree
+
+  create_table "images_sliders", force: :cascade do |t|
+    t.integer  "slider_id",  limit: 4
+    t.integer  "numIS",      limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images_sliders", ["slider_id"], name: "index_images_sliders_on_slider_id", using: :btree
+
+  create_table "sliders", force: :cascade do |t|
     t.text     "name",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "slider_images", force: :cascade do |t|
-    t.text     "url",                        limit: 65535
-    t.integer  "slider_images_carrousel_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "slider_images", ["slider_images_carrousel_id"], name: "index_slider_images_on_slider_images_carrousel_id", using: :btree
-
-  create_table "slider_images_carrousels", force: :cascade do |t|
-    t.integer  "slider_carrousel_id", limit: 4
-    t.integer  "numIS",               limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "slider_images_carrousels", ["slider_carrousel_id"], name: "index_slider_images_carrousels_on_slider_carrousel_id", using: :btree
-
-  add_foreign_key "slider_images", "slider_images_carrousels"
-  add_foreign_key "slider_images_carrousels", "slider_carrousels"
+  add_foreign_key "images", "images_sliders"
+  add_foreign_key "images_sliders", "sliders"
 end
