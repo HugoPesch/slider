@@ -1,25 +1,12 @@
 module Slider
   class PagesController < ApplicationController
 
-  def index
+    def index
+    end
 
-  end
-
-  def view_sliders
-
-  end
-
-  def create_sliders
-    @slider = Slider.new
-  end
-
-  def add_picture
-
-  end
-
-  def edition_sliders
-
-  end
+    def new
+      @slider = Slider.new
+    end
 
   end
 end
