@@ -1,0 +1,17 @@
+<% if @gallery.errors.any? %>
+  <ul>
+    <% @gallery.errors.full_messages.each do |e| %>
+      <li>
+        <%= e %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<div class="">
+  <div class="">Création d'une Gallerie d'image</div>
+  <%= form_for @gallery, url: create_gallery_path do |f| %>
+  <%= f.label "Gallery name: " %>
+  <%= f.text_field :galleryName %>
+  <button type="submit" name="button">Create</button>
+<% end %>
+</div>
