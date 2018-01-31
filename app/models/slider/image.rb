@@ -1,5 +1,5 @@
 module Slider
   class Image < ActiveRecord::Base
-    belongs_to  :slider_images_carrousel
+    belongs_to  :gallery
   end
 end

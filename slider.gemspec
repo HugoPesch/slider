@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.2.10"
+  s.add_dependency "paperclip", "~> 5.2", ">= 5.2.1"
+  s.add_dependency "dropzonejs-rails", "~> 0.8.2"
 
   s.add_development_dependency "mysql2"
 end

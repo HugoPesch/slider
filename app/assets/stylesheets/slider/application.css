@@ -23,6 +23,7 @@ html {
 body {
   margin: 0
 }
+
 .head {
   top: 0;
   margin-bottom: 10px;
@@ -56,7 +57,7 @@ body {
   }
 }
 
-#carrousel1 {
+#carrouselHor {
   border: solid 5px #e7dbc5;
   width: 722px;
   height: 274px;
@@ -64,15 +65,15 @@ body {
   position: relative;
 }
 
-#carrousel2 {
+#carrouselVer {
   border: solid 5px #e7dbc5;
-  width: 722px;
-  height: 274px;
+  width: 318px;
+  height: 570px;
   margin: 0 auto;
   position: relative;
 }
 
-.slide {
+#carrouselHor .slide {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,10 +81,19 @@ body {
   height: 264px;
 }
 
+
+#carrouselVer .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 308px;
+  height: 560px;
+}
+
 .title {
   position: absolute;
   padding-left: 12px;
-  width: 712px;
+  width: 100%;
   line-height: 34px;
   height: 34px;
   bottom: 0;
@@ -124,4 +134,13 @@ body {
   color: transparent;
   background: black;
   opacity: 0.5;
+}
+
+.drop {
+  border: 2px dotted;
+  padding: 20px;
+  height: 100px;
+  width: 350px;
+  color: #bdc3c7;
+  font-size: 200%;
 }

@@ -1,25 +1,48 @@
 <%
   slides = {"1": 1, "2": 2, "3": 3, "4": 1, "5": 3}
   nbSlides = slides.length;
+
+  slides1 = {"1": "r1", "2": "r2", "3": "r3"}
+  nbSlides1 = slides1.length
 %>
-  <div id="carrousel1">
+  <div id="carrouselHor">
     <% slides.each do |slide, img| %>
-      <div id="slide<%=slide.to_s.to_i%>" class="slide">
+      <div id="slide<%= slide.to_s.to_i %>" class="slide">
         <div class="numSlide">
-          <span><%=slide.to_s.to_i%>/<%= nbSlides %></span>
+          <span><%= slide %>/<%= nbSlides %></span>
         </div>
         <div class="visuel">
           <img src="../images/<%= img %>.jpg"/>
         </div>
         <div class="title">
           Image
-          <%=slide.to_s.to_i%>
+          <%= slide %>
         </div>
       </div>
     <% end %>
   </div>
+  <br/>
+
+  <div id="carrouselVer">
+    <% slides1.each do |slide, img| %>
+      <div id="slide<%= slide %>" class="slide">
+        <div class="numSlide">
+          <span><%= slide %>/<%= nbSlides1 %></span>
+        </div>
+        <div class="visuel">
+          <img src="../images/<%= img.to_s %>.jpg"/>
+        </div>
+        <div class="title">
+          Image
+          <%= slide %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
   <div>
     <ul>
-      <li><a href="<%= pages_new_path%>">Add Slider</a></li>
+      <li><a href="<%= new_path %>">Add Slider</a></li>
     </ul>
   </div>

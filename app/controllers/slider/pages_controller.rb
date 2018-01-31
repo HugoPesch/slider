@@ -8,11 +8,26 @@ module Slider
       @slider = Slider::Carrousel.new
     end
 
-    def create
+    def add_gallery
+      @gallery = Slider::Gallery.new
     end
 
-    def import_image
+    def create_gallery
+      @gallery = Slider::Gallery.new(params.require(:gallery).permit(:galleryName))
+      if @gallery.valid?
+        @gallery.save
+        redirect_to drop_image_path, success: "Gallery create"
+      else
+        render 'add_gallery'
+      end
     end
+
+    def edit_gallery
+    end
+
+    def drop_images
+    end
+
 
   end
 end

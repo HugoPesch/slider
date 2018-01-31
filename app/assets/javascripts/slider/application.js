@@ -11,4 +11,5 @@
 // about supported directives.
 //
 //= require_tree .
-//= include "slider.js";
+//= include "sliderHor.js";
+//= include "sliderVer.js";
