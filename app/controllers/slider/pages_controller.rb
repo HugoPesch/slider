@@ -25,7 +25,8 @@ module Slider
     def edit_gallery
     end
 
-    def drop_images
+    def upload_images
+      
     end
 
 
