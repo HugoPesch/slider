@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails", "~> 4.3", ">= 4.3.1"
   s.add_dependency "dropzonejs-rails", "~> 0.8.2"
   s.add_dependency "sass-rails", "~> 5.0"
+  s.add_dependency "image-picker-rails", "~> 0.2.4"
 
+  s.add_development_dependency "byebug", "~> 10.0"
   s.add_development_dependency "mysql2"
 end

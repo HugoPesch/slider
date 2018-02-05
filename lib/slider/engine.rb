@@ -6,6 +6,7 @@ module Slider
     require "paperclip"
     require "jquery-rails"
     require "dropzonejs-rails"
+    require "image-picker-rails"
 
   end
 end

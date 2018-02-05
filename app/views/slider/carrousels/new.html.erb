@@ -1,0 +1,18 @@
+<%if @slider.errors.any? %>
+  <ul>
+    <% @slider.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<%end%>
+<%= form_for @slider do |f| %>
+  <%= f.label "Carrousel name" %><br/>
+  <%= f.text_field :carrouselName %><br/>
+  <%= f.label "Carrousel type" %><br/>
+    <div>
+      <%= f.radio_button :type_slide, "vertical" %><span> vertical </span><br/>
+      <%= f.radio_button :type_slide, "horizontal" %><span> horizontal  </span><br/>
+    </div>
+  <a href="<%= carrousels_path %>">Cancel</a>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Galleries Index</h1>
+<ul>
+  <% @galleries.each do |gallery| %>
+    <li>
+      <%= gallery.id %>
+      <%= gallery.galleryName %>
+      <a href="<%= edit_gallery_path( gallery.id)%>">Edit</a>
+      <a href="<%= gallery_path( gallery.id) %>" data-confirm="Do you realy want to delete this gallery ?" data-method="DELETE">Delete</a>
+    </li>
+  <%end%>
+</ul>
+<br/>
+<a href="<%= new_gallery_path %>">Create Gallery</a>

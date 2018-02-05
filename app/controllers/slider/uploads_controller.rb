@@ -2,11 +2,11 @@ module Slider
   class UploadsController < ApplicationController
 
     def index
-      @upload = Upload.new
+      @upload = Slider::Upload.new
     end
 
     def create
-      @upload = Upload.new(upload_params)
+      @upload = Slider::Upload.new(upload_params)
 
       if @upload.save
         render json: {message: "success",  uploadId: @upload.id}, status: 200
@@ -17,7 +17,7 @@ module Slider
     end
 
     def destroy
-      @upload = Upload.find(params[:id])
+      @upload = Slider::Upload.find(params[:id])
       if @upload.destroy
         render json: {message: "file deleted from server" }
       else
@@ -27,7 +27,7 @@ module Slider
 
     def list
     		uploads = []
-    		Upload.all.each do |upload|
+    		Slider::Upload.all.each do |upload|
     			new_upload = {
     				id: upload.id,
     				name: upload.image_file_name,

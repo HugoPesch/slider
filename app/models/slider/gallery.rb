@@ -1,8 +1,7 @@
 module Slider
   class Gallery < ActiveRecord::Base
-    
-    belongs_to  :slider_carrousel
 
+    belongs_to :carrousel
     has_many :uploads
 
     validates :galleryName,  presence: true, allow_blank: false,

@@ -1,0 +1,15 @@
+<h1>Edit Page</h1>
+<%= form_for @gallery do |f| %>
+  <%= f.label "Gallery name" %><br/>
+  <%= f.text_field :galleryName %><br/>
+  <%= f.label "Gallery images" %><br/>
+  <div>
+      <%= f.select :uploads, options_for_select(@gallery.uploads.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:medium)}] },@gallery.uploads.pluck(:id)),{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+  </div>
+
+  <a href="<%= galleries_path %>">Cancel</a>
+  <%= f.submit %>
+  <div>
+    <%= f.select :uploads, @images.reject{|gal| !gal.gallery_id.nil? }.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:medium)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+  </div>
+<% end %>

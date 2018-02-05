@@ -1,0 +1,14 @@
+<h1>Carrousels Index</h1>
+  <ul>
+    <% @sliders.each do |slider| %>
+      <li>
+        <%= slider.id %>
+        <%= slider.carrouselName %>
+        <%= slider.type_slide %>
+        <a href="<%= edit_carrousel_path(slider.id)%>">Edit</a>
+        <a href="<%= carrousel_path(slider.id) %>" data-confirm="Do you realy want to delete this slider ?" data-method="DELETE">Delete</a>
+      </li>
+    <%end%>
+  </ul>
+  <br/>
+  <a href="<%= new_carrousel_path %>">Create Carrousel</a>

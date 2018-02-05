@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201130809) do
+ActiveRecord::Schema.define(version: 20180205110131) do
 
   create_table "slider_carrousels", force: :cascade do |t|
     t.text "carrouselName", limit: 65535
@@ -19,16 +19,16 @@ ActiveRecord::Schema.define(version: 20180201130809) do
   end
 
   create_table "slider_galleries", force: :cascade do |t|
-    t.integer  "slider_carrousel_id", limit: 4
-    t.text     "galleryName",         limit: 65535
+    t.integer  "carrousel_id", limit: 4
+    t.text     "galleryName",  limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "slider_galleries", ["slider_carrousel_id"], name: "index_slider_galleries_on_slider_carrousel_id", using: :btree
+  add_index "slider_galleries", ["carrousel_id"], name: "index_slider_galleries_on_carrousel_id", using: :btree
 
   create_table "slider_uploads", force: :cascade do |t|
-    t.integer  "slider_gallery_id",  limit: 4
+    t.integer  "gallery_id",         limit: 4
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "image_file_name",    limit: 255
@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 20180201130809) do
     t.datetime "image_updated_at"
   end
 
-  add_index "slider_uploads", ["slider_gallery_id"], name: "index_slider_uploads_on_slider_gallery_id", using: :btree
+  add_index "slider_uploads", ["gallery_id"], name: "index_slider_uploads_on_gallery_id", using: :btree
 
-  add_foreign_key "slider_galleries", "slider_carrousels"
-  add_foreign_key "slider_uploads", "slider_galleries"
+  add_foreign_key "slider_uploads", "slider_galleries", column: "gallery_id"
 end

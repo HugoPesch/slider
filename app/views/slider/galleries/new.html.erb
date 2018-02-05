@@ -1,0 +1,17 @@
+<%if @gallery.errors.any? %>
+  <ul>
+    <% @gallery.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<%end%>
+<%= form_for @gallery do |f| %>
+  <%= f.label "Gallery name" %><br/>
+  <%= f.text_field :galleryName %><br/>
+    <div>
+      <%= f.label "Images" %>
+      <%= f.select :uploads, @images.reject{|gal| !gal.gallery_id.nil? }.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:medium)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+    </div>
+  <a href="<%= galleries_path %>">Cancel</a>
+  <%= f.submit %>
+<% end %>

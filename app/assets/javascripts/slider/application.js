@@ -9,9 +9,13 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//
 //= require jquery
 //= require jquery_ujs
 //= require dropzone
+//= require image-picker
 //= require_tree .
 //= include "sliderHor.js";
 //= include "sliderVer.js";
+
+$("select").imagepicker()
