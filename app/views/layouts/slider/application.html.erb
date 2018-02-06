@@ -5,9 +5,47 @@
     <%= stylesheet_link_tag "slider/application", media: "all" %>
     <%= csrf_meta_tags %>
   </head>
-  <nav class="head nav-head">
-    <div class="container"></div>
-  </nav>
+  <div class="head">
+    <div class="head center">
+      <nav>
+        <ul>
+          <li>
+            <a>Images</a>
+            <ul>
+              <li>
+                <a href="">Show images</a>
+              </li>
+              <li>
+                <a href="">Upload</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>Carrousels</a>
+            <ul>
+              <li>
+                <a href="">Carrousel list</a>
+              </li>
+              <li>
+                <a href="">Create Carrousels</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>Galleries</a>
+            <ul>
+              <li>
+                <a href="">Gallery list</a>
+              </li>
+              <li>
+                <a href="">Create Gallery</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
   <body>
     <div class="container">
       <% if flash[:success]  %>
