@@ -31,6 +31,8 @@ body {
   background-color: black;
   width: auto;
   height: 40px;
+  margin-bottom: 100px;
+
 }
 .center {
   margin-left: auto;
@@ -38,9 +40,10 @@ body {
   width: 900px;
 }
 .head nav {
-  position: relative;
-
+  position: absolute;
+  z-index:1;
 }
+
 .head ul {
   color: white;
   margin: 0;
@@ -57,7 +60,7 @@ body {
   line-height: 40px;
   text-align: center;
   font-size: 20px;
-  opacity: .8;
+  opacity: .7;
 }
 
 .head ul li a {
@@ -119,6 +122,7 @@ body {
 }
 
 #carrouselHor .slide {
+  z-index:-1;
   position: absolute;
   top: 0;
   left: 0;
