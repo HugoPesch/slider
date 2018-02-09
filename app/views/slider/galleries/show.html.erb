@@ -1,4 +1,3 @@
-<h2>Gallery images</h2>
 <% @gallery.uploads.each do |image| %>
-  <%= image_tag image.image(:medium) %>
+  <%= image_tag image.image(:thumb) %>
 <% end %>

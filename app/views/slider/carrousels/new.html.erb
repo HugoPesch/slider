@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="form-style-8">
   <h2>Create Carrousel</h2>
   <%if @slider.errors.any? %>
@@ -9,49 +8,20 @@
     </ul>
   <%end%>
 
-   <%= form_for @slider do |f| %>
+  <%= form_for @slider do |f| %>
+    <%= f.label "Carrousel Name" %>
+    <%= f.text_field :carrouselName %>
+    <%= f.label "Carrousel Type" %>
 
-    <%= f.label "Name" %>
-    <%= f.text_field :carrouselName %><br/>
-
-    <%= f.label "Type" %><br/>
       <div>
-        <%= f.radio_button :type_slide, "vertical" %><span>Vertical</span><br/>
-        <%= f.radio_button :type_slide, "horizontal" %><span>Horizontal</span><br/>
+        <%= f.radio_button :type_slide, "vertical" %><span> vertical </span><br/>
+        <%= f.radio_button :type_slide, "horizontal" %><span> horizontal  </span><br/>
       </div>
     <br/>
-    
-    <p class="in-form-button"><%= f.submit %><p/>
-  <% end %>
-=======
-<%if @slider.errors.any? %>
-  <ul>
-    <% @slider.errors.full_messages.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
-<%end%>
-
-<%= form_for @slider do |f| %>
-<h1>Create Carrousel</h1>
-  <%= f.label "Carrousel name" %><br/>
-  <%= f.text_field :carrouselName %><br/>
-  <%= f.label "Carrousel type" %><br/>
-
-    <div>
-      <%= f.radio_button :type_slide, "vertical" %><span> vertical </span><br/>
-      <%= f.radio_button :type_slide, "horizontal" %><span> horizontal  </span><br/>
+    <label for="carrousel_gallery">Carrousel Gallery:</label>
+      <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, :prompt => "None" %><br/>
+    <div id="images">
     </div>
-  <br/>
-  <label for="carrousel_gallery">Galleries:</label>
-    <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, :prompt => "None" %><br/>
-  <div id="images">
-  </div>
-    <a href="<%= carrousels_path %>">Cancel</a>
-  <%= f.submit %>
+    <p class="in-form-button"><%= f.submit %><p/>
 
-<% end %>
-<div>
-  <!-- AJAX call image gallery-preview from select -->
->>>>>>> 0efb081c9228a09fe97fdf914501b341efc690ac
-</div>
+  <% end %>

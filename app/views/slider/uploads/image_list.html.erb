@@ -1,6 +1,8 @@
-<h1>Image List</h1>
-<ul>
-  <% @imagesList.each do |image|%>
-    <%= image_tag image.image(:medium) %>
-  <% end %>
-</ul>
+<div class="form-style-8">
+  <h2>Image List</h2>
+  <ul>
+    <% @imagesList.each do |image|%>
+      <%= image_tag image.image(:thumb) %>
+    <% end %>
+  </ul>
+</div>
