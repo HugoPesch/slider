@@ -1,0 +1,21 @@
+$(document).ready(function(){
+  /*gallerySelected();*/
+  $('#carrousel_gallery').on('change', function(){
+    id = $('#carrousel_gallery').val();
+    console.log(id);
+    if (id != "" ){
+      $.ajax({
+        type: 'GET',
+        url: "/galleries/" + id,
+        beforeSend: function() {
+          
+        },
+        success:function(data){
+              console.log(data);
+              $('#images').html(data);
+         }
+      })
+    }
+      $('#images').empty();
+  });
+});

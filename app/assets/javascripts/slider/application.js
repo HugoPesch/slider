@@ -18,4 +18,4 @@
 //= include "sliderHor.js";
 //= include "sliderVer.js";
 
-$("select").imagepicker()
+$("select#gallery_uploads").imagepicker()

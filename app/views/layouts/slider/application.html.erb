@@ -4,6 +4,7 @@
     <title>Slider</title>
     <%= stylesheet_link_tag "slider/application", media: "all" %>
     <%= csrf_meta_tags %>
+    <%= yield(:head) %>
   </head>
   <div class="head">
     <div class="head center">
@@ -13,10 +14,10 @@
             <a>Images</a>
             <ul>
               <li>
-                <a href="<%= %>">Show images</a>
+                <a href="<%= image_list_path%>">Show images</a>
               </li>
               <li>
-                <a href="<%= %>">Upload</a>
+                <a href="<%= uploads_path %>">Upload</a>
               </li>
             </ul>
           </li>

@@ -1,0 +1,6 @@
+<h1>Image List</h1>
+<ul>
+  <% @imagesList.each do |image|%>
+    <%= image_tag image.image(:medium) %>
+  <% end %>
+</ul>

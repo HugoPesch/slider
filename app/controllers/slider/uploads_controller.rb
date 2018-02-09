@@ -5,6 +5,10 @@ module Slider
       @upload = Slider::Upload.new
     end
 
+    def image_list
+      @imagesList = Slider::Upload.all
+    end
+
     def create
       @upload = Slider::Upload.new(upload_params)
 

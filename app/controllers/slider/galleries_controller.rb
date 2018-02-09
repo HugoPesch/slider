@@ -11,6 +11,8 @@ module Slider
     end
 
     def show
+        @gallery = Slider::Gallery.find(params[:id])
+        render :layout => false
     end
 
     def new
@@ -23,6 +25,7 @@ module Slider
       @uploads= uploads[:uploads].reject { |c| c.empty?}
 
       @gallery = Slider::Gallery.new(gallery_params)
+
       if @gallery.save
         @uploads.each do |image|
           Slider::Upload.find(image).update(gallery_id: @gallery.id)
@@ -59,7 +62,7 @@ module Slider
           Slider::Upload.find(id).update(:gallery_id => params[:id])
         end
       end
-      
+
       @gallery.update(gallery_params)
       redirect_to galleries_path, success: "Gallery has correctly been updated"
 
