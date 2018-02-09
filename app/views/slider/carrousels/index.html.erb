@@ -5,6 +5,7 @@
         <%= slider.id %>
         <%= slider.carrouselName %>
         <%= slider.type_slide %>
+        <a href="<%= carrousel_path(slider.id)%>">Show</a>
         <a href="<%= edit_carrousel_path(slider.id)%>">Edit</a>
         <a href="<%= carrousel_path(slider.id) %>" data-confirm="Do you realy want to delete this slider ?" data-method="DELETE">Delete</a>
       </li>

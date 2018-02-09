@@ -70,6 +70,7 @@ module Slider
     end
 
     def destroy
+      Slider::Gallery.where(carrousel_id: @slider.id).update_all(:carrousel_id => nil)
       @slider.destroy
       redirect_to carrousels_path, success: "Slider has correctly been destroyed"
     end
