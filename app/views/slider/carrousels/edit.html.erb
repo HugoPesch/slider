@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="form-style-8">
   <h2>Edit Carrousel</h2>
   <%= form_for @slider do |f| %>
@@ -15,25 +14,6 @@
     <% else %>
       <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, include_blank: 'No gallery' %><br/>
     <% end %>
-=======
-<h1>Edit Page</h1>
-<%= form_for @slider do |f| %>
-  <%= f.label "Nom du slider" %><br/>
-  <%= f.text_field :carrouselName %><br/>
-  <%= f.label "Type de slider" %><br/>
-  <div>
-    <%= f.radio_button :type_slide, "carrouselVer", :checked => (@slider.type_slide == "carrouselVer") %><span>vertical</span><br/>
-    <%= f.radio_button :type_slide, "carrouselHor", :checked => (@slider.type_slide != "vertical") %><span>horizontal</span><br/>
-  </div>
-  <div>
-  <% if defined?(@slider.gallery.id) %>
-    <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? && car.carrousel_id != @slider.gallery.carrousel_id }, :id, :galleryName, include_blank: 'None', :selected => @slider.gallery.id %><br/>
-  <% else %>
-    <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, include_blank: 'None' %><br/>
-  <% end %>
-  </div>
-    <div id="images">
->>>>>>> f1ea3318388584c8e049a2d81c104144164aafe9
     </div>
     <div id="images"></div>
     <p class="in-form-button"><%= f.submit %><p/>

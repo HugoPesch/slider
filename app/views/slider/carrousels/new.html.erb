@@ -8,30 +8,19 @@
     </ul>
   <%end%>
 
-<<<<<<< HEAD
   <%= form_for @slider do |f| %>
     <%= f.label "Carrousel Name" %>
     <%= f.text_field :carrouselName %>
     <%= f.label "Carrousel Type" %>
 
       <div>
-        <%= f.radio_button :type_slide, "vertical" %><span> vertical </span><br/>
-        <%= f.radio_button :type_slide, "horizontal" %><span> horizontal  </span><br/>
+        <%= f.radio_button :type_slide, "carrouselVer" %><span> vertical </span><br/>
+        <%= f.radio_button :type_slide, "carrouselHor" %><span> horizontal  </span><br/>
       </div>
     <br/>
     <label for="carrousel_gallery">Carrousel Gallery:</label>
       <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, :prompt => "None" %><br/>
     <div id="images">
-=======
-<%= form_for @slider do |f| %>
-<h1>Create Carrousel</h1>
-  <%= f.label "Carrousel name" %><br/>
-  <%= f.text_field :carrouselName %><br/>
-  <%= f.label "Carrousel type" %><br/>
-    <div>
-      <%= f.radio_button :type_slide, "carrouselVer" %><span> vertical </span><br/>
-      <%= f.radio_button :type_slide, "carrouselHor" %><span> horizontal  </span><br/>
->>>>>>> f1ea3318388584c8e049a2d81c104144164aafe9
     </div>
     <p class="in-form-button"><%= f.submit %><p/>
 
