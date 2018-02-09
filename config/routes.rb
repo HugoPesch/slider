@@ -8,6 +8,8 @@ Slider::Engine.routes.draw do
     end
   end
 
+  get "uploads/image-list", to: "uploads#image_list", as: "image_list"
+
   resources :carrousels
   resources :galleries
 

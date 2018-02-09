@@ -1,1 +1,4 @@
-<h1>Show Page</h1>
+<h2>Gallery images</h2>
+<% @gallery.uploads.each do |image| %>
+  <%= image_tag image.image(:medium) %>
+<% end %>
