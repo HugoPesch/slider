@@ -4,6 +4,7 @@ class CreateSliderCarrousels < ActiveRecord::Migration
 
       t.text :carrouselName
       t.text :type_slide
+      t.text :img_class
 
     end
   end
