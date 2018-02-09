@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180206123048) do
   create_table "slider_carrousels", force: :cascade do |t|
     t.text "carrouselName", limit: 65535
     t.text "type_slide",    limit: 65535
+    t.text "img_class",     limit: 65535
   end
 
   create_table "slider_galleries", force: :cascade do |t|

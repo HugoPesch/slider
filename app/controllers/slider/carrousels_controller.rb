@@ -25,7 +25,14 @@ module Slider
 
       puts @gallery.inspect
 
-      @slider = Slider::Carrousel.new(slider_params)
+      if slider_params[:type_slide] == "carrouselHor"
+        @img_class = {"img_class" => "img-hor"}
+      else
+        @img_class = {"img_class" => "img-ver"}
+      end
+      @slider_params = slider_params.merge(@img_class)
+      @slider = Slider::Carrousel.new(@slider_params)
+
       if @slider.save
         if @gallery > 0
           Slider::Gallery.find(@gallery).update(carrousel_id: @slider.id)
@@ -64,7 +71,14 @@ module Slider
         Slider::Gallery.find(@modifGallery).update(carrousel_id: @slider.id)
       end
 
-      @slider.update(slider_params)
+
+      if slider_params[:type_slide] == "carrouselHor"
+        @img_class = {"img_class" => "img-hor"}
+      else
+        @img_class = {"img_class" => "img-ver"}
+      end
+      @slider_params = slider_params.merge(@img_class)
+      @slider.update(@slider_params)
       redirect_to carrousels_path, success: "Slider has correctly been updated"
 
     end
