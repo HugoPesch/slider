@@ -5,6 +5,7 @@
   slides1 = {"1": "r1", "2": "r2", "3": "r3"}
   nbSlides1 = slides1.length
 %>
+<h2>Exemple de slider horizontal</h2>
   <div id="carrouselHor">
     <% slides.each do |slide, img| %>
       <div id="slide<%= slide.to_s.to_i %>" class="slide">
@@ -21,8 +22,8 @@
       </div>
     <% end %>
   </div>
-  <br/>
-
+  <br/><br/><br/>
+  <h2>Exemple de slider horizontal</h2>
   <div id="carrouselVer">
     <% slides1.each do |slide, img| %>
       <div id="slide<%= slide %>" class="slide">
@@ -38,11 +39,4 @@
         </div>
       </div>
     <% end %>
-  </div>
-
-
-  <div>
-    <ul>
-      <li><a href="<%= new_carrousel_path %>">Add Carrousel</a></li>
-    </ul>
   </div>
