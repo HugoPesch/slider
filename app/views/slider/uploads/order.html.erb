@@ -1,0 +1,14 @@
+<table>
+  <tbody>
+  <% @uploads.each do |upload| %>
+    <tr>
+      <td>
+        <%= upload.image_file_name %><br/>
+      </td>
+      <td>
+        <%= text_field_tag "order[#{upload.id}]", "", class: "" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
