@@ -26,6 +26,10 @@ body {
   margin: 0
 }
 
+a:link {
+  text-decoration: none
+}
+
 .out-form-button-carrousels{
   position: relative;
   left: 358px;

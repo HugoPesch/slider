@@ -4,8 +4,7 @@
     <ul>
       <% @sliders.each do |slider| %>
         <li>
-          <%= slider.carrouselName %>
-          <a href="<%= carrousel_path(slider.id)%>">Show</a>
+          <a href="<%= carrousel_path(slider.id)%>"><%= slider.carrouselName %></a>
           <a href="<%= edit_carrousel_path(slider.id)%>">Edit</a>
           <a href="<%= carrousel_path(slider.id) %>" data-confirm="Do you realy want to delete this slider ?" data-method="DELETE">Delete</a>
         </li>
