@@ -5,8 +5,13 @@
     <%= f.text_field :carrouselName %><br/>
     <%= f.label "Type de slider" %><br/>
     <div>
+<<<<<<< HEAD
       <%= f.radio_button :type_slide, "carrouselVer", :checked => (@slider.type_slide == "carrouselVer") %><span>Vertical</span><br/>
       <%= f.radio_button :type_slide, "carrouselHor", :checked => (@slider.type_slide != "carrouselVer") %><span>Horizontal</span><br/><br/>
+=======
+      <%= f.radio_button :type_slide, "carrouselVer", :checked => (@slider.type_slide == "carrouselVer") %><span>vertical</span><br/>
+      <%= f.radio_button :type_slide, "carrouselHor", :checked => (@slider.type_slide != "carrouselVer") %><span>horizontal</span><br/><br/>
+>>>>>>> 49fa080fea25573ca12726d8d9d762da817c5264
     </div>
     <div>
     <% if defined?(@slider.gallery.id) %>

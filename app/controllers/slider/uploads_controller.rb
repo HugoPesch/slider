@@ -5,6 +5,11 @@ module Slider
       @upload = Slider::Upload.new
     end
 
+    def order
+      @uploads = Slider::Upload.where(id: params[:id])
+      render :layout => false
+    end
+
     def image_list
       @imagesList = Slider::Upload.all
     end
@@ -21,7 +26,9 @@ module Slider
     end
 
     def destroy
+      Slider::Upload.find(params[:id]).orders.destroy_all
       @upload = Slider::Upload.find(params[:id])
+
       if @upload.destroy
         render json: {message: "file deleted from server" }
       else

@@ -1,5 +1,6 @@
 module Slider
   class GalleriesController < ApplicationController
+
     before_action :set_gallery, only: [ :edit, :show, :update, :destroy]
 
     def index
@@ -7,7 +8,7 @@ module Slider
     end
 
     def edit
-      @images = Slider::Upload.all
+      @images = Slider::Upload.where("slider_uploads.id NOT IN (SELECT upload_id FROM slider_orders WHERE gallery_id = #{@gallery.id})")
     end
 
     def show
@@ -28,7 +29,8 @@ module Slider
 
       if @gallery.save
         @uploads.each do |image|
-          Slider::Upload.find(image).update(gallery_id: @gallery.id)
+          @order = Slider::Order.new(upload_id: image, gallery_id: @gallery.id)
+          @order.save
         end
         redirect_to galleries_path, success: "Gallery has correctly been created"
       else
@@ -38,7 +40,9 @@ module Slider
     end
 
     def update
-      currentImages = Slider::Upload.where(gallery_id: params[:id]).select(:id)
+
+      currentImages = Slider::Upload.joins(:orders).where(slider_orders: {gallery_id: params[:id]}).select(:id)
+
       @currentImages = []
       currentImages.each do |im|
         @currentImages.push(im.id)
@@ -53,13 +57,16 @@ module Slider
 
       if !@imagesDif.nil?
           @imagesDif.each do |id|
-            Slider::Upload.find(id).update(:gallery_id => nil)
+            puts ("TABLE IMAGE DIF")
+            puts @imagesDif.inspect
+            Slider::Gallery.find(@gallery.id).uploads.destroy(id)
           end
       end
 
       if !@imagePlus.nil?
         @imagePlus.each do |id|
-          Slider::Upload.find(id).update(:gallery_id => params[:id])
+          @nOrder = Slider::Order.new(upload_id: id, gallery_id: @gallery.id)
+          @nOrder.save
         end
       end
 
@@ -69,7 +76,7 @@ module Slider
     end
 
     def destroy
-      Slider::Upload.where(gallery_id: @gallery.id).update_all(:gallery_id => nil)
+      Slider::Order.where(gallery_id: @gallery.id).destroy_all
       @gallery.destroy
       redirect_to galleries_path, success: "Gallery has correctly been destroyed"
     end

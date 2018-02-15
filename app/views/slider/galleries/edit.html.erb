@@ -5,11 +5,11 @@
     <%= f.text_field :galleryName %><br/>
     <%= f.label "Current images" %><br/>
     <div>
-        <%= f.select :uploads, options_for_select(@gallery.uploads.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },@gallery.uploads.pluck(:id)),{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+      <%= f.select :uploads, options_for_select(@gallery.uploads.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },@gallery.uploads.pluck(:id)),{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
     </div>
-    <%= f.label "Free images" %><br/>
+      <%= f.label "Free images" %><br/>
     <div>
-      <%= f.select :uploads, @images.reject{|gal| !gal.gallery_id.nil? }.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+       <%= f.select :uploads, @images.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
     </div>
     <p class="in-form-button"><%= f.submit %><p/>
   <% end %>

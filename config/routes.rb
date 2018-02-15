@@ -8,10 +8,13 @@ Slider::Engine.routes.draw do
     end
   end
 
+
+  post "uploads/order", to: "uploads#order", as: "order"
   get "uploads/image-list", to: "uploads#image_list", as: "image_list"
 
   resources :carrousels
   resources :galleries
+  resources :orders
 
 
 end

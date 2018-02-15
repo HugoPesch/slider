@@ -4,8 +4,8 @@
   <div id="content">
     <%= form_for @upload, html: {multipart: true, class: "dropzone", id: "my-dropzone"} do |f| %>
       <div class="dz-message needsclick">
-        <h3>Drop files here</h3>or
-        <strong>Click</strong>to upload
+        <h3>Drop files here</h3> or
+        <strong> Click</strong> to upload
       </div>
       <div class="fallback">
         <%= f.file_field :image %>
