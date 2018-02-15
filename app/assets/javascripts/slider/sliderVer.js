@@ -8,7 +8,6 @@ var carrouselVer = {
   init: function(elem) {
     this.nbSlide = elem.find(".slide").length;
     //Création de la pagination
-
     elem.append('<div class="navigation"></div>')
 
     for (var i = 1; i <= this.nbSlide; i++) {

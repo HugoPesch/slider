@@ -22,14 +22,23 @@ module Slider
     end
 
     def create
+
       uploads = params.require(:gallery).permit(:uploads=>[])
       @uploads= uploads[:uploads].reject { |c| c.empty?}
+
+      order = Hash.new
+      order = params[:order]
 
       @gallery = Slider::Gallery.new(gallery_params)
 
       if @gallery.save
         @uploads.each do |image|
-          @order = Slider::Order.new(upload_id: image, gallery_id: @gallery.id)
+          if order[image.to_s].to_i == 0
+            @order = nil
+          else
+            @order = order[image.to_s].to_i
+          end
+          @order = Slider::Order.new(upload_id: image, gallery_id: @gallery.id, order: @order)
           @order.save
         end
         redirect_to galleries_path, success: "Gallery has correctly been created"

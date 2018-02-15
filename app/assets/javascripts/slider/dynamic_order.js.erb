@@ -1,12 +1,11 @@
 $(document).ready(function(){
   /*gallerySelected();*/
-  $('#gallery_uploads').on('change', function(){
 
+  $('#gallery_uploads').on('change', function(){
     id = $('#gallery_uploads').val();
     ids = "";
     $(id).each (function(index, imgId){
       ids += "id[]="+imgId+"&";
-
     });
     console.log(ids);
     console.log(id);
