@@ -3,14 +3,30 @@
   <%= form_for @gallery do |f| %>
     <%= f.label "Gallery name" %><br/>
     <%= f.text_field :galleryName %><br/>
+    <%= f.label "Order" %><br/>
+    <div id="order">
+      <table>
+        <tbody>
+            <% @gallery.orders.order('slider_orders.order').each do |img| %>
+            <tr>
+              <td>
+                <%= img.upload.image_file_name %>
+              </td>
+              <td>
+                <%= f.fields_for img, index: img.id do |o| %>
+                  <%= o.text_field :order, class: "" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br/>
     <%= f.label "Current images" %><br/>
-    <div>
-      <%= f.select :uploads, options_for_select(@gallery.uploads.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },@gallery.uploads.pluck(:id)),{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
-    </div>
-      <%= f.label "Free images" %><br/>
-    <div>
-       <%= f.select :uploads, @images.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
-    </div>
+    <%= f.select :uploads, options_for_select(@gallery.uploads.order('slider_orders.order').map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },@gallery.uploads.pluck(:id)),{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
+    <%= f.label "Free images" %><br/>
+    <%= f.select :uploads, @images.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker masonry" } %>
     <p class="in-form-button"><%= f.submit %><p/>
   <% end %>
 </div>
