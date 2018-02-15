@@ -6,7 +6,12 @@
         <%= upload.image_file_name %><br/>
       </td>
       <td>
-        <%= text_field_tag "order[#{upload.id}]", "1", class: "" %>
+          <% val = ""
+          if !@idGallery.nil?
+            val = upload.order.to_s
+          end
+          %>
+          <%= text_field_tag "order[#{upload.id}]", val, class: "" %>
       </td>
     </tr>
   <% end %>

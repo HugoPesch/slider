@@ -6,7 +6,13 @@ module Slider
     end
 
     def order
-      @uploads = Slider::Upload.where(id: params[:id])
+      if !params[:idGallery].nil?
+        @idGallery = params[:idGallery]
+        @uploads= Slider::Upload.select(:id, :image_file_name, :order).joins(:orders).where(id: params[:id], slider_orders: {gallery_id: params[:idGallery]}).order("slider_orders.order")
+
+      else
+        @uploads = Slider::Upload.where(id: params[:id])
+      end
       render :layout => false
     end
 

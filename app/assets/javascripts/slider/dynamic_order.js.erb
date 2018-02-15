@@ -1,18 +1,22 @@
 $(document).ready(function(){
   /*gallerySelected();*/
 
-  $('#gallery_uploads').on('change', function(){
-    id = $('#gallery_uploads').val();
+  $('.image-picker').on('change', function(){
+    id = $('.image-picker option:selected');
     ids = "";
     $(id).each (function(index, imgId){
-      ids += "id[]="+imgId+"&";
+      ids += "id[]="+$(imgId).val()+"&";
     });
     console.log(ids);
     console.log(id);
+    idGallery = "";
+    if ($('#gallery_id').length > 0){
+      idGallery = "/" + $('#gallery_id').val();
+    }
     if (id != "" ){
       $.ajax({
         type: 'POST',
-        url: "/uploads/order",
+        url: "/uploads/order"+ idGallery,
         data: ids,
         beforeSend: function() {
         },

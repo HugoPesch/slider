@@ -1,6 +1,7 @@
 <div class="form-style-8">
   <h2>Edit Gallery</h2>
   <%= form_for @gallery do |f| %>
+    <%= f.hidden_field :id %>
     <%= f.label "Gallery name" %><br/>
     <%= f.text_field :galleryName %><br/>
     <%= f.label "Order" %><br/>
