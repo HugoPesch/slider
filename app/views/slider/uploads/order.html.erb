@@ -1,18 +1,21 @@
 <table>
   <tbody>
-  <h4>Order</h4>
   <% @uploads.each do |upload| %>
+  <%
+    val = ""
+    if @idGallery != nil
+      if upload.order != nil
+        val = upload.order.to_s
+      end
+    end
+  %>
+
     <tr>
       <td>
         <%= upload.image_file_name %><br/>
       </td>
       <td>
-          <% val = ""
-          if !@idGallery.nil?
-            val = upload.order.to_s
-          end
-          %>
-          <%= text_field_tag "order[#{upload.id}]", val, class: "" %>
+          <%= text_field_tag "gallery[order][#{upload.id}][order]", val, class: "" %>
       </td>
     </tr>
   <% end %>

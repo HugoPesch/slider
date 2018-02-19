@@ -26,17 +26,17 @@ module Slider
       uploads = params.require(:gallery).permit(:uploads=>[])
       @uploads= uploads[:uploads].reject { |c| c.empty?}
 
-      order = Hash.new
-      order = params[:order]
+      @orderH = Hash.new
+      @orderH = params.require(:gallery).require(:order)
 
       @gallery = Slider::Gallery.new(gallery_params)
 
       if @gallery.save
         @uploads.each do |image|
-          if order[image.to_s].to_i == 0
+          if @orderH[image]["order"].to_i == 0
             @order = nil
           else
-            @order = order[image.to_s].to_i
+            @order = @orderH[image]["order"].to_i
           end
           @order = Slider::Order.new(upload_id: image, gallery_id: @gallery.id, order: @order)
           @order.save
@@ -57,12 +57,18 @@ module Slider
         @currentImages.push(im.id)
       end
 
+
       modifImages = params.require(:gallery).permit(:uploads=>[])
       @modifImages =  modifImages[:uploads].reject { |c| c.empty?}
 
       @intModif = @modifImages.collect{ |s| s.to_i }
       @imagesDif = @currentImages -  @intModif
       @imagePlus = @intModif - @currentImages
+
+      @orderH = Hash.new
+      @orderH = params.require(:gallery).require(:order)
+      puts "----------------------"
+      puts   @orderH.inspect
 
       if !@imagesDif.nil?
           @imagesDif.each do |id|
@@ -74,9 +80,18 @@ module Slider
 
       if !@imagePlus.nil?
         @imagePlus.each do |id|
-          @nOrder = Slider::Order.new(upload_id: id, gallery_id: @gallery.id)
+          if @orderH[id] == 0
+            @order = nil
+          else
+            @order = @orderH[id]
+          end
+          @nOrder = Slider::Order.new(upload_id: id, gallery_id: @gallery.id, order: @order)
           @nOrder.save
         end
+      end
+
+      @orderH.each do |upload, order|
+        Slider::Order.find_by(upload_id: upload, gallery_id: @gallery.id).update(order: order[:order])
       end
 
       @gallery.update(gallery_params)

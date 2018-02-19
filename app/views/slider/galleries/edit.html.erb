@@ -8,13 +8,13 @@
     <div id="order">
       <table>
         <tbody>
-            <% @gallery.orders.order('slider_orders.order').each do |img| %>
+            <% @gallery.orders.order('slider_orders.order').each do |ord| %>
             <tr>
               <td>
-                <%= img.upload.image_file_name %>
+                <%= ord.upload.image_file_name %>
               </td>
               <td>
-                <%= f.fields_for img, index: img.id do |o| %>
+                <%= f.fields_for ord, index: ord.upload.id do |o| %>
                   <%= o.text_field :order, class: "" %>
                 <% end %>
               </td>
