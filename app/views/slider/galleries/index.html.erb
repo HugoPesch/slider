@@ -6,21 +6,21 @@
     <th>Name</th>
     <th>Edit</th>
     <th>Delete</th>
+
     <% @galleries.each do |gallery| %>
-        <tr>
+    <tr>
           <td><%= gallery.galleryName %></td>
           <td><a class="fa fa-edit" href="<%= edit_gallery_path( gallery.id)%>"/></td>
           <td><a class="fa fa-trash" href="<%= gallery_path( gallery.id) %>" data-confirm="Do you realy want to delete this gallery ?" data-method="DELETE"/></td>
-        </tr>
+    </tr>
+        <%end%>
         <br/>
   </table>
   <br/>
   <br/>
   <br/>
-  <a class="button-blue-style-form-8 in-form-button" href="<%= new_gallery_path %>">Create Gallery</a>
-  <%end%>
   <% else %>
     <h4>No galleries existing</h4>
-    <a class="button-blue-style-form-8 in-form-button" href="<%= new_gallery_path %>">Create Gallery</a>
   <% end %>
+  <a class="button-blue-style-form-8 in-form-button-galleries" href="<%= new_gallery_path %>">Create Gallery</a>
 </div>

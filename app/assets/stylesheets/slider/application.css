@@ -40,9 +40,14 @@ a:link {
   left: 377px;
 }
 
-.in-form-button{
+.in-form-button-carrousels{
   position: relative;
   left: 450px;
+}
+
+.in-form-button-galleries{
+  position: relative;
+  left: 475px;
 }
 
 .form-style-8{
