@@ -1,17 +1,24 @@
 <div class="form-style-8">
   <h2>Carrousels List</h2>
     <% if @sliders.any? %>
-    <ul>
+    <table>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
       <% @sliders.each do |slider| %>
-        <li>
-          <a href="<%= carrousel_path(slider.id)%>"><%= slider.carrouselName %></a>
-          <a href="<%= edit_carrousel_path(slider.id)%>">Edit</a>
-          <a href="<%= carrousel_path(slider.id) %>" data-confirm="Do you realy want to delete this slider ?" data-method="DELETE">Delete</a>
-        </li>
-      <%end%>
-    </ul>
+          <tr>
+            <td><a href="<%= carrousel_path(slider.id)%>"><%= slider.carrouselName %></a></td>
+            <td><a class="fa fa-edit" href="<%= edit_carrousel_path(slider.id)%>"/></td>
+            <td><a class="fa fa-trash" href="<%= carrousel_path(slider.id) %>" data-confirm="Do you realy want to delete this gallery ?" data-method="DELETE"/></td>
+          </tr>
+          <%end%>
+          <br/>
+    </table>
+    <br/>
+    <br/>
+    <br/>
     <% else %>
       <h4>No carrousels existing</h4>
     <% end %>
-    <a class="button-blue-style-form-8 in-form-button" href="<%= new_carrousel_path %>">Create Carrousel</a>
+    <a class="button-blue-style-form-8 in-form-button-carrousels" href="<%= new_carrousel_path %>">Create Carrousel</a>
 </div>

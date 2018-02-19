@@ -22,6 +22,7 @@
       <%= f.collection_select :gallery, @galleries.reject{|car| !car.carrousel_id.nil? }, :id, :galleryName, :prompt => "None" %><br/>
     <div id="images">
     </div>
+    <br/>
     <p class="in-form-button"><%= f.submit %><p/>
 
   <% end %>
