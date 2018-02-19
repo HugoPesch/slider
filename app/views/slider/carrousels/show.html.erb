@@ -3,7 +3,7 @@
   @slides = Hash.new
   @nbSlides = @slider.gallery.uploads.length
 
-    @slider.gallery.uploads.each_with_index do |image, num|
+    @slider.gallery.uploads.order("slider_orders.order").each_with_index do |image, num|
         @slides.merge!({:"#{num+1}" => image.image(:original)})
     end
 %>
