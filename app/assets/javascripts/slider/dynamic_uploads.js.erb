@@ -1,17 +1,22 @@
 $(document).ready(function(){
   /*gallerySelected();*/
+
+  /*Lors de du changement de la select liste*/
+
   $('#carrousel_gallery').on('change', function(){
     id = $('#carrousel_gallery').val();
     console.log(id);
     if (id != "" ){
       $.ajax({
+        /* appel ajax avec la methode GET, url: galleries + id gallery */
         type: 'GET',
         url: "/galleries/" + id,
         beforeSend: function() {
-          
+
         },
         success:function(data){
               console.log(data);
+              /* Rendu dans la div id images*/
               $('#images').html(data);
          }
       })

@@ -1,9 +1,15 @@
 module Slider
   class UploadsController < ApplicationController
 
+    #Appel de la page index avec création d'un nouvel objet uploads
     def index
       @upload = Slider::Upload.new
     end
+
+=begin
+  Méthode d'appel du champ  text_field sur la page order.html.erb lors de la selection des images de la page création/édition de la gallery
+  Récupération de l'id de gallery, (édition) préchagement des images qui font déjà partie de la gallery si le params[:idGallery] !.nil?, sinon (création) envois de toutes les images
+=end
 
     def order
       if !params[:idGallery].nil?
@@ -15,10 +21,12 @@ module Slider
       render :layout => false
     end
 
+    #affichage sur la page la liste des images enregistrées
     def image_list
       @imagesList = Slider::Upload.all
     end
 
+    #Methode de création et sauvegarde des images
     def create
       @upload = Slider::Upload.new(upload_params)
 
@@ -30,6 +38,11 @@ module Slider
       puts @upload.inspect
     end
 
+=begin
+  Methode de suppression d'images
+  suppression de tous champs dans slider_orders oû l'image est attriuée
+=end
+
     def destroy
       Slider::Upload.find(params[:id]).orders.destroy_all
       @upload = Slider::Upload.find(params[:id])
@@ -40,6 +53,10 @@ module Slider
         render json: {message: @image.errors.full_messages.join(", ")}
       end
     end
+
+=begin
+   List upload affiche la liste des images déjà enregistrer
+=end
 
     def list
     		uploads = []
@@ -57,6 +74,7 @@ module Slider
 
     private
 
+    #définition des paramètres de l'image
     def upload_params
        params.require(:upload).permit(:image)
     end

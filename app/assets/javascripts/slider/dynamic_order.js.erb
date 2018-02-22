@@ -1,19 +1,25 @@
 $(document).ready(function(){
   /*gallerySelected();*/
 
+  /*Lors de du changement de la select liste*/
+
   $('.image-picker').on('change', function(){
     id = $('.image-picker option:selected');
     ids = "";
+    /* redéfinition de la chaine caractères pour la methode post de rails des images, pour plusieurs paramètres*/
     $(id).each (function(index, imgId){
       ids += "id[]="+$(imgId).val()+"&";
     });
+
     console.log(ids);
     console.log(id);
     idGallery = "";
+    /* Vérification de l'id sélectionnée*/
     if ($('#gallery_id').length > 0){
       idGallery = "/" + $('#gallery_id').val();
     }
     if (id != "" ){
+      /*Appel Ajax sur la methode: POST, url: /uploads/order + idGallery , data: les images (chaine de caractères) */
       $.ajax({
         type: 'POST',
         url: "/uploads/order"+ idGallery,
@@ -22,6 +28,7 @@ $(document).ready(function(){
         },
         success:function(data){
               console.log(data);
+              /*Rendu dans la div id order*/
               $('#order').html(data);
          }
       })
