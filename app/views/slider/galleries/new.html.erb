@@ -9,9 +9,9 @@
   <%end%>
   <%= form_for @gallery do |f| %>
     <%= f.label "Gallery name" %><br/>
-    <%= f.text_field :galleryName %><br/>    
-    <div id="order" class="order-images"></div>
-    <br/>
+    <%= f.text_field :galleryName %><br/>
+    <%= f.label "Order" %><br/>
+    <div id="order"></div>
     <%= f.label "Images" %>
     <%= f.select :uploads, @images.map{ |im| [im.image_file_name, im.id, {'data-img-src'=>im.image(:thumb)}] },{include_blank: 'None'},{ :multiple => true, class:"image-picker" } %>
     <p class="in-form-button"><%= f.submit %></p>

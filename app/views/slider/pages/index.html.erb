@@ -1,8 +1,9 @@
 <%
-  slides = {"1": 1, "2": 2, "3": 3, "4": 1, "5": 3}
+  #Code brute pour les slider de la page d'accueil
+  slides = {"1": "bleu (1)", "2": "bleu (2)", "3": "bleu (3)", "4": "vert (1)", "5": "vert (2)"}
   nbSlides = slides.length;
 
-  slides1 = {"1": "r1", "2": "r2", "3": "r3"}
+  slides1 = {"1": "bleu (1)", "2": "bleu (2)", "3": "bleu (3)"}
   nbSlides1 = slides1.length
 %>
 <h2>Exemple de slider horizontal</h2>
@@ -13,7 +14,7 @@
           <span><%= slide %>/<%= nbSlides %></span>
         </div>
         <div class="visuel">
-          <img src="../images/<%= img %>.jpg"/>
+          <img class="img-hor" src="../images/<%= img.to_s %>.jpg"/>
         </div>
         <div class="title">
           Image
@@ -31,7 +32,7 @@
           <span><%= slide %>/<%= nbSlides1 %></span>
         </div>
         <div class="visuel">
-          <img src="../images/<%= img.to_s %>.jpg"/>
+          <img class="img-ver" src="../images/<%= img.to_s %>.jpg"/>
         </div>
         <div class="title">
           Image
