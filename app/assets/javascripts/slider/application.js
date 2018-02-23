@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require dropzone
 //= require image-picker
-//= require_tree .
-//= include "sliderHor.js";
-//= include "sliderVer.js";
+//= require_tree
+//= require slider/sliderHor
+//= require slider/sliderVer
 
 $("select#gallery_uploads").imagepicker()

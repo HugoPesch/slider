@@ -7,12 +7,10 @@
       <% end %>
     </ul>
   <%end%>
-
   <%= form_for @slider do |f| %>
     <%= f.label "Carrousel Name" %>
     <%= f.text_field :carrouselName %>
     <%= f.label "Carrousel Type" %>
-
       <div>
         <%= f.radio_button :type_slide, "carrouselVer" %><span> Vertical </span><br/>
         <%= f.radio_button :type_slide, "carrouselHor" %><span> Horizontal  </span><br/>
@@ -23,6 +21,5 @@
     <div id="images">
     </div>
     <br/>
-    <p class="in-form-button"><%= f.submit %><p/>
-
-  <% end %>
+  <p class="in-form-button"><%= f.submit %><p/>
+<% end %>

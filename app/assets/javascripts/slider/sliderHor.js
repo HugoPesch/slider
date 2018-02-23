@@ -69,8 +69,8 @@ var carrouselHor = {
 }
 
 $(function() {
-  carrouselHor.init($("#carrouselHor"));
   $(document).ready(function() {
+    carrouselHor.init($("#carrouselHor"));
     $("#carrouselHor").mouseover(function() {
       carrouselHor.stop();
     });
@@ -78,5 +78,4 @@ $(function() {
       carrouselHor.play();
     });
   });
-
 });

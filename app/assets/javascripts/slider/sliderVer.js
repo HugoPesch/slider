@@ -68,8 +68,8 @@ var carrouselVer = {
 }
 
 $(function() {
-  carrouselVer.init($("#carrouselVer"));
   $(document).ready(function() {
+    carrouselVer.init($("#carrouselVer"));
     $("#carrouselVer").mouseover(function() {
       carrouselVer.stop();
     });
@@ -77,5 +77,4 @@ $(function() {
       carrouselVer.play();
     });
   });
-
 });

@@ -1,3 +1,45 @@
-<% @gallery.uploads.each do |image| %>
+<% @gallery.uploads.order('slider_orders.order').each do |image| %>
   <%= image_tag image.image(:thumb) %>
 <% end %>
+<br/>
+<%
+  @slides = Hash.new
+  @nbSlides = @gallery.uploads.length
+  @gallery.uploads.order("slider_orders.order").each_with_index do |image, num|
+      @slides.merge!({:"#{num+1}" => image.image(:original)})
+  end
+%>
+<label>Horizontal priview</label>
+<div id="carrouselHor">
+  <% @slides.each do |slide, img| %>
+    <div id="slide<%= slide.to_s.to_i %>" class="slide">
+      <div class="numSlide">
+        <span><%= slide %>/<%= @nbSlides %></span>
+      </div>
+      <div class="visuel">
+        <%= image_tag img , class: "img-hor" %>
+      </div>
+      <div class="title">
+        Image
+        <%= slide %>
+      </div>
+    </div>
+  <% end %>
+</div><br/><br/>
+<label>Vertical priview</label>
+<div id="carrouselVer">
+  <% @slides.each do |slide, img| %>
+    <div id="slide<%= slide.to_s.to_i %>" class="slide">
+      <div class="numSlide">
+        <span><%= slide %>/<%= @nbSlides %></span>
+      </div>
+      <div class="visuel">
+        <%= image_tag img , class: "img-ver" %>
+      </div>
+      <div class="title">
+        Image
+        <%= slide %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -52,7 +52,7 @@ a:link {
 
 .form-style-8{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 700px;
+    width: 800px;
     padding: 30px;
     background: #FFFFFF;
     margin: 50px auto;
@@ -261,7 +261,6 @@ a:link {
 }
 
 #carrouselHor .slide {
-  z-index:-1;
   position: absolute;
   top: 0;
   left: 0;
@@ -278,7 +277,6 @@ a:link {
   height: 560px;
 }
 .img-hor {
-  z-index:-1;
   position: absolute;
   top: 0;
   left: 0;
@@ -286,7 +284,6 @@ a:link {
   height: 264px;
 }
 .img-ver {
-  z-index:-1;
   position: absolute;
   top: 0;
   left: 0;

@@ -29,7 +29,9 @@ module Slider
 
     def show
         @gallery = Slider::Gallery.find(params[:id])
-        render :layout => false
+        respond_to do |format|
+            format.html { render layout: false}
+        end
     end
 
 =begin
